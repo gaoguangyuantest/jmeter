@@ -20,9 +20,11 @@
     	<plugin>
     		<groupId>com.lazerycode.jmeter</groupId>
     		<artifactId>jmeter-maven-plugin</artifactId>
-    		<version>1.4.1</version>
+    		<version>1.8.2-SNAPSHOT</version>
     		<configuration>
     			<testResultsTimestamp>false</testResultsTimestamp>
+    			<resultsFileFormat>xml</resultsFileFormat>
+                <ignoreResultFailures>true</ignoreResultFailures>
     		</configuration>
     		<executions>
     			<execution>
