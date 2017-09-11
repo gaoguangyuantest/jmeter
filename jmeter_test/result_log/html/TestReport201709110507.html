@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Load Test Results</title>
+<style type="text/css">
+				body {
+					font:normal 68% verdana,arial,helvetica;
+					color:#000000;
+				}
+				table tr td, table tr th {
+					font-size: 68%;
+				}
+				table.details tr th{
+				    color: #ffffff;
+					font-weight: bold;
+					text-align:center;
+					background:#2674a6;
+					white-space: nowrap;
+				}
+				table.details tr td{
+					background:#eeeee0;
+					white-space: nowrap;
+				}
+				h1 {
+					margin: 0px 0px 5px; font: 165% verdana,arial,helvetica
+				}
+				h2 {
+					margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica
+				}
+				h3 {
+					margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica
+				}
+				.Failure {
+					font-weight:bold; color:red;
+				}
+				
+	
+				img
+				{
+				  border-width: 0px;
+				}
+				
+				.expand_link
+				{
+				   position=absolute;
+				   right: 0px;
+				   width: 27px;
+				   top: 1px;
+				   height: 27px;
+				}
+				
+				.page_details
+				{
+				   display: none;
+				}
+                                
+                                .page_details_expanded
+                                {
+                                    display: block;
+                                    display/* hide this definition from  IE5/6 */: table-row;
+                                }
+
+
+			</style>
+<script language="JavaScript">
+                           function expand(details_id)
+			   {
+			      
+			      document.getElementById(details_id).className = "page_details_expanded";
+			   }
+			   
+			   function collapse(details_id)
+			   {
+			      
+			      document.getElementById(details_id).className = "page_details";
+			   }
+
+			   function f_all_total_time()
+			   {
+			      var v_tts = document.getElementsByTagName('v_tt');
+			      var v_min_ts = parseInt(document.getElementsByTagName('v_min_ts')[0].innerHTML);
+			      var v_count = parseInt(document.getElementsByTagName('v_count')[0].innerHTML);
+			      var max = 0;
+			      for(i=0;i<v_tts.length;i++){
+				  var temp_all = parseInt(v_tts[i].innerHTML);
+				  if(temp_all > max){
+				       max = temp_all;
+				  }
+			      }  
+			    
+			      var v_total_time = max - v_min_ts;
+			   
+			      var all_total_time = document.getElementById('all_total_time');
+			     all_total_time.innerHTML=v_total_time +' ms';
+				 var all_tps = document.getElementById('all_tps');
+				 all_tps.innerHTML=(v_count*1000/v_total_time).toFixed(1) +'/sec' ;
+			   }
+			   function f_all_total_time_label()
+			   {	
+				f_all_total_time();
+				var labels = document.getElementsByName('label');
+				for(i=0;i<labels.length;i++){
+					var label = labels[i].innerHTML;
+					var v_tts = document.getElementsByName('v_tt_'+label);
+					var v_min_ts = parseInt(document.getElementsByName('v_min_ts_'+label)[0].innerHTML);
+					var v_count = parseInt(document.getElementsByName('v_count_'+label)[0].innerHTML);
+					 var max = 0;
+					 for(j=0;j<v_tts.length;j++){
+						 var temp_all = parseInt(v_tts[j].innerHTML);
+						 if(temp_all > max){
+							 max = temp_all;
+						}
+					}  
+			    
+					var v_total_time = max - v_min_ts;
+					 var all_total_time = document.getElementById('total_time_'+label);
+					 all_total_time.innerHTML=v_total_time +' ms';
+					 var all_tps = document.getElementById('tps_'+label);
+					 all_tps.innerHTML=(v_count*1000/v_total_time).toFixed(1) +'/sec' ;
+				}
+			      
+			   }
+			   function change(details_id)
+			   {
+			      if(document.getElementById(details_id+"_image").src.match("expand"))
+			      {
+			         document.getElementById(details_id+"_image").src = "collapse.png";
+			         expand(details_id);
+			      }
+			      else
+			      {
+			         document.getElementById(details_id+"_image").src = "expand.png";
+			         collapse(details_id);
+			      } 
+                           }
+			   window.onload = f_all_total_time_label;
+			</script>
+</head>
+<body>
+<h1>Load Test Results</h1>
+<table width="100%">
+<tr>
+<td align="left">Date report: 2017/09/11 17:07</td><td align="right">Designed for use with <a href="http://jmeter.apache.org/">JMeter</a> and <a href="http://ant.apache.org">Ant</a>.</td>
+</tr>
+</table>
+<hr size="1">
+<h2>Summary</h2>
+<table width="95%" cellspacing="2" cellpadding="5" border="0" class="details" align="center">
+<tr valign="top">
+<th># Samples</th><th>Failures</th><th>Success Rate</th><th>Average Time</th><th>Min Time</th><th>Max Time</th><th>50% Line</th><th>90% Line</th><th>Total Time</th><th>TPS</th>
+</tr>
+<tr valign="top" class="Failure">
+<p style="display:none">
+<v_tt label="JDBC Request">1505120856380</v_tt>
+<v_tt label="HTTP5">1505120856549</v_tt>
+<v_tt label="HTTP1">1505120856593</v_tt>
+<v_tt label="HTTP2">1505120856609</v_tt>
+<v_tt label="HTTP3">1505120856619</v_tt>
+<v_tt label="HTTP4">1505120856631</v_tt>
+<v_min_ts>1505120856379</v_min_ts>
+<v_count>6</v_count>
+</p>
+<td align="center">6</td><td align="center">2</td><td align="center">66.67%</td><td align="center">33 ms</td><td align="center">1 ms</td><td align="center">123 ms</td><td align="center">11 ms</td><td align="center">38 ms</td><td id="all_total_time" align="center"></td><td id="all_tps" align="center"></td>
+</tr>
+</table>
+<hr align="center" width="95%" size="1">
+<h2>Pages</h2>
+<table width="95%" cellspacing="2" cellpadding="5" border="0" class="details" align="center">
+<tr valign="top">
+<th>URL</th><th># Samples</th><th>Failures</th><th>Success Rate</th><th>Average Time</th><th>Min Time</th><th>Max Time</th><th>50% Line</th><th>90% Line</th><th>Total Time</th><th>TPS</th>
+</tr>
+<tr valign="top" class="Failure">
+<p style="display:none">
+<v_tt_ele name="v_tt_JDBC Request">1505120856380</v_tt_ele>
+<v_min_ts_ele name="v_min_ts_JDBC Request">1505120856379</v_min_ts_ele>
+<v_count_ele name="v_count_JDBC Request">1</v_count_ele>
+</p>
+<td><a href="#JDBC Request"><span name="label">JDBC Request</span></a></td><td align="center">1</td><td align="center">1</td><td align="right">0.00%</td><td align="right">1 ms</td><td align="right">1 ms</td><td align="right">1 ms</td><td align="center">1 ms</td><td align="center">1 ms</td><td align="center" id="total_time_JDBC Request"></td><td align="center" id="tps_JDBC Request"></td><td align="center"><a href="javascript:change('page_details_1')"><img alt="expand/collapse" src="expand.png" id="page_details_1_image"></a></td>
+</tr>
+<tr class="page_details" id="page_details_1">
+<td bgcolor="#FF0000" colspan="8">
+<div align="center">
+<b>Details for Page "JDBC Request"</b>
+<table width="95%" cellspacing="1" cellpadding="1" border="0" bgcolor="#2674A6" bordercolor="#000000">
+<tr>
+<th>Thread</th><th>Iteration</th><th>Time (milliseconds)</th><th>Bytes</th><th>Success</th>
+</tr>
+<tr>
+<td>线程组 2-1</td><td align="center">1</td><td align="right">1</td><td align="right">53</td><td align="center">false</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr valign="top" class="Failure">
+<p style="display:none">
+<v_tt_ele name="v_tt_HTTP5">1505120856549</v_tt_ele>
+<v_min_ts_ele name="v_min_ts_HTTP5">1505120856426</v_min_ts_ele>
+<v_count_ele name="v_count_HTTP5">1</v_count_ele>
+</p>
+<td><a href="#HTTP5"><span name="label">HTTP5</span></a></td><td align="center">1</td><td align="center">1</td><td align="right">0.00%</td><td align="right">123 ms</td><td align="right">123 ms</td><td align="right">123 ms</td><td align="center">123 ms</td><td align="center">123 ms</td><td align="center" id="total_time_HTTP5"></td><td align="center" id="tps_HTTP5"></td><td align="center"><a href="javascript:change('page_details_2')"><img alt="expand/collapse" src="expand.png" id="page_details_2_image"></a></td>
+</tr>
+<tr class="page_details" id="page_details_2">
+<td bgcolor="#FF0000" colspan="8">
+<div align="center">
+<b>Details for Page "HTTP5"</b>
+<table width="95%" cellspacing="1" cellpadding="1" border="0" bgcolor="#2674A6" bordercolor="#000000">
+<tr>
+<th>Thread</th><th>Iteration</th><th>Time (milliseconds)</th><th>Bytes</th><th>Success</th>
+</tr>
+<tr>
+<td>线程组 1-1</td><td align="center">1</td><td align="right">123</td><td align="right">2737</td><td align="center">false</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr valign="top" class="">
+<p style="display:none">
+<v_tt_ele name="v_tt_HTTP1">1505120856593</v_tt_ele>
+<v_min_ts_ele name="v_min_ts_HTTP1">1505120856555</v_min_ts_ele>
+<v_count_ele name="v_count_HTTP1">1</v_count_ele>
+</p>
+<td><span name="label">HTTP1</span></td><td align="center">1</td><td align="center">0</td><td align="right">100.00%</td><td align="right">38 ms</td><td align="right">38 ms</td><td align="right">38 ms</td><td align="center">38 ms</td><td align="center">38 ms</td><td align="center" id="total_time_HTTP1"></td><td align="center" id="tps_HTTP1"></td><td align="center"><a href="javascript:change('page_details_3')"><img alt="expand/collapse" src="expand.png" id="page_details_3_image"></a></td>
+</tr>
+<tr class="page_details" id="page_details_3">
+<td bgcolor="#FF0000" colspan="8">
+<div align="center">
+<b>Details for Page "HTTP1"</b>
+<table width="95%" cellspacing="1" cellpadding="1" border="0" bgcolor="#2674A6" bordercolor="#000000">
+<tr>
+<th>Thread</th><th>Iteration</th><th>Time (milliseconds)</th><th>Bytes</th><th>Success</th>
+</tr>
+<tr>
+<td>线程组 1-1</td><td align="center">1</td><td align="right">38</td><td align="right">263</td><td align="center">true</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr valign="top" class="">
+<p style="display:none">
+<v_tt_ele name="v_tt_HTTP2">1505120856609</v_tt_ele>
+<v_min_ts_ele name="v_min_ts_HTTP2">1505120856594</v_min_ts_ele>
+<v_count_ele name="v_count_HTTP2">1</v_count_ele>
+</p>
+<td><span name="label">HTTP2</span></td><td align="center">1</td><td align="center">0</td><td align="right">100.00%</td><td align="right">15 ms</td><td align="right">15 ms</td><td align="right">15 ms</td><td align="center">15 ms</td><td align="center">15 ms</td><td align="center" id="total_time_HTTP2"></td><td align="center" id="tps_HTTP2"></td><td align="center"><a href="javascript:change('page_details_4')"><img alt="expand/collapse" src="expand.png" id="page_details_4_image"></a></td>
+</tr>
+<tr class="page_details" id="page_details_4">
+<td bgcolor="#FF0000" colspan="8">
+<div align="center">
+<b>Details for Page "HTTP2"</b>
+<table width="95%" cellspacing="1" cellpadding="1" border="0" bgcolor="#2674A6" bordercolor="#000000">
+<tr>
+<th>Thread</th><th>Iteration</th><th>Time (milliseconds)</th><th>Bytes</th><th>Success</th>
+</tr>
+<tr>
+<td>线程组 1-1</td><td align="center">1</td><td align="right">15</td><td align="right">209</td><td align="center">true</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr valign="top" class="">
+<p style="display:none">
+<v_tt_ele name="v_tt_HTTP3">1505120856619</v_tt_ele>
+<v_min_ts_ele name="v_min_ts_HTTP3">1505120856610</v_min_ts_ele>
+<v_count_ele name="v_count_HTTP3">1</v_count_ele>
+</p>
+<td><span name="label">HTTP3</span></td><td align="center">1</td><td align="center">0</td><td align="right">100.00%</td><td align="right">9 ms</td><td align="right">9 ms</td><td align="right">9 ms</td><td align="center">9 ms</td><td align="center">9 ms</td><td align="center" id="total_time_HTTP3"></td><td align="center" id="tps_HTTP3"></td><td align="center"><a href="javascript:change('page_details_5')"><img alt="expand/collapse" src="expand.png" id="page_details_5_image"></a></td>
+</tr>
+<tr class="page_details" id="page_details_5">
+<td bgcolor="#FF0000" colspan="8">
+<div align="center">
+<b>Details for Page "HTTP3"</b>
+<table width="95%" cellspacing="1" cellpadding="1" border="0" bgcolor="#2674A6" bordercolor="#000000">
+<tr>
+<th>Thread</th><th>Iteration</th><th>Time (milliseconds)</th><th>Bytes</th><th>Success</th>
+</tr>
+<tr>
+<td>线程组 1-1</td><td align="center">1</td><td align="right">9</td><td align="right">263</td><td align="center">true</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr valign="top" class="">
+<p style="display:none">
+<v_tt_ele name="v_tt_HTTP4">1505120856631</v_tt_ele>
+<v_min_ts_ele name="v_min_ts_HTTP4">1505120856620</v_min_ts_ele>
+<v_count_ele name="v_count_HTTP4">1</v_count_ele>
+</p>
+<td><span name="label">HTTP4</span></td><td align="center">1</td><td align="center">0</td><td align="right">100.00%</td><td align="right">11 ms</td><td align="right">11 ms</td><td align="right">11 ms</td><td align="center">11 ms</td><td align="center">11 ms</td><td align="center" id="total_time_HTTP4"></td><td align="center" id="tps_HTTP4"></td><td align="center"><a href="javascript:change('page_details_6')"><img alt="expand/collapse" src="expand.png" id="page_details_6_image"></a></td>
+</tr>
+<tr class="page_details" id="page_details_6">
+<td bgcolor="#FF0000" colspan="8">
+<div align="center">
+<b>Details for Page "HTTP4"</b>
+<table width="95%" cellspacing="1" cellpadding="1" border="0" bgcolor="#2674A6" bordercolor="#000000">
+<tr>
+<th>Thread</th><th>Iteration</th><th>Time (milliseconds)</th><th>Bytes</th><th>Success</th>
+</tr>
+<tr>
+<td>线程组 1-1</td><td align="center">1</td><td align="right">11</td><td align="right">209</td><td align="center">true</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+<hr align="center" width="95%" size="1">
+<h2>Failure Detail</h2>
+<h3>JDBC Request<a name="JDBC Request"></a>
+</h3>
+<table width="95%" cellspacing="2" cellpadding="5" border="0" class="details" align="center">
+<tr valign="top">
+<th>Response</th><th>Failure Message</th>
+</tr>
+<tr>
+<td>null 0 - java.sql.SQLException: Cannot load JDBC driver class 'com.mysql.jdbc.Driver'</td><td></td>
+</tr>
+</table>
+<h3>HTTP5<a name="HTTP5"></a>
+</h3>
+<table width="95%" cellspacing="2" cellpadding="5" border="0" class="details" align="center">
+<tr valign="top">
+<th>Response</th><th>Failure Message</th>
+</tr>
+<tr>
+<td>Non HTTP response code: java.io.FileNotFoundException - Non HTTP response message: /opt/jmeter/jmeter_test/script/C:\Users\Public\Desktop\GeForce Experience.lnk (No such file or directory)</td><td></td>
+</tr>
+</table>
+</body>
+</html>

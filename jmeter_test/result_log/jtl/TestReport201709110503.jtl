@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<sample t="1" it="0" lt="0" ct="1" ts="1505120586665" s="false" lb="JDBC Request" rc="null 0" rm="java.sql.SQLException: Cannot load JDBC driver class &apos;com.mysql.jdbc.Driver&apos;" tn="线程组 2-1" dt="text" by="53" sby="0" ng="1" na="2"/>
+<httpSample t="129" it="0" lt="0" ct="120" ts="1505120586737" s="false" lb="HTTP5" rc="Non HTTP response code: java.io.FileNotFoundException" rm="Non HTTP response message: /opt/jmeter/jmeter_test/script/C:\Users\Public\Desktop\GeForce Experience.lnk (No such file or directory)" tn="线程组 1-1" dt="text" by="2737" sby="0" ng="1" na="1"/>
+<httpSample t="39" it="0" lt="39" ct="7" ts="1505120586870" s="true" lb="HTTP1" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="263" sby="131" ng="1" na="1"/>
+<httpSample t="14" it="0" lt="14" ct="0" ts="1505120586911" s="true" lb="HTTP2" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="209" sby="205" ng="1" na="1"/>
+<httpSample t="9" it="0" lt="9" ct="0" ts="1505120586927" s="true" lb="HTTP3" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="263" sby="164" ng="1" na="1"/>
+<httpSample t="10" it="0" lt="10" ct="0" ts="1505120586939" s="true" lb="HTTP4" rc="200" rm="OK" tn="线程组 1-1" dt="text" by="209" sby="238" ng="1" na="1"/>
+
+</testResults>
