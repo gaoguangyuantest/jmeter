@@ -634,7 +634,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/teaminlite/v1/circles/${circleId}/label/${labelId}?labelName=tea${__Random(1,9999,)}</stringProp>
+          <stringProp name="HTTPSampler.path">/teaminlite/v1/circles/${circleId}/label/${labelId}?labelName=${__Random(1,9999,)}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
