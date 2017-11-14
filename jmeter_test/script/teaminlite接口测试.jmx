@@ -555,8 +555,8 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="labelName" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">你好${__Random(1,9999,)}</stringProp>
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">你好${__RandomString(3,你好阿萨德爱的发空间的说法是机发生的合法可点击额外收入全额,)}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">labelName</stringProp>
@@ -583,7 +583,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="labelName" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">test${__Random(1,9999,)}</stringProp>
+                <stringProp name="Argument.value">tes${__RandomString(3,abzcxdfghjkloiuuyyqewrtyu,)}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">labelName</stringProp>
@@ -1045,7 +1045,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/teaminlite/v1/circles/${circleId}/label/${labelId}?labelName=中文${__Random(1,9999,)}</stringProp>
+          <stringProp name="HTTPSampler.path">/teaminlite/v1/circles/${circleId}/label/${labelId}?labelName=你好${__RandomString(3,你好阿萨德爱的发空间的说法是机发生的合法可点击额外收入全额,)}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -1064,7 +1064,7 @@
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/teaminlite/v1/circles/${circleId}/label/${labelId}?labelName=test${__Random(1,9999,)}</stringProp>
+          <stringProp name="HTTPSampler.path">/teaminlite/v1/circles/${circleId}/label/${labelId}?labelName=test${__RandomString(3,abzcxdfghjkloiuuyyqewrtyu,)}</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
